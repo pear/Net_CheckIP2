@@ -1,5 +1,5 @@
 <?php
-/* 
+/**
  * Copyright (c) 2002-2006 Martin Jansen
  *
  * Permission is hereby granted, free of charge, to any person obtaining
@@ -28,18 +28,20 @@
  *
  * Usage:
  *   <?php
- *   require_once "Net/CheckIP2.php";
+ *   require_once 'Net/CheckIP2.php';
  *     
  *   if (Net_CheckIP2::check_ip("your_ip_goes_here")) {
  *       // Syntax of the IP is ok
  *   }
  *   ?>
  *
- * @author  Martin Jansen <mj@php.net>
- * @author  Guido Haeger <gh-lists@ecora.de>
- * @author  Till Klampaeckel <till@php.net>
- * @package Net_CheckIP2
- * @version 0.0.1
+ * @author   Martin Jansen <mj@php.net>
+ * @author   Guido Haeger <gh-lists@ecora.de>
+ * @author   Till Klampaeckel <till@php.net>
+ * @category Networking
+ * @package  Net_CheckIP2
+ * @version  0.0.1
+ * @license http://www.opensource.org/licenses/mit-license.html MIT License
  */
 class Net_CheckIP2
 {
