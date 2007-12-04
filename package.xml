@@ -13,6 +13,12 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>till@php.net</email>
   <active>yes</active>
  </lead>
+ <lead>
+  <name>Martin Jansen</name>
+  <user>mj</user>
+  <email>mj@php.net</email>
+  <active>yes</active>
+ </lead>
  <date>2007-12-04</date>
  <time>18:00:00</time>
  <version>
