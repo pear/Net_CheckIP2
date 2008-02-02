@@ -22,12 +22,12 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <date>2007-12-04</date>
  <time>18:00:00</time>
  <version>
-  <release>1.0.0</release>
-  <api>1.0.0</api>
+  <release>1.0.0RC1</release>
+  <api>1.0.0RC1</api>
  </version>
  <stability>
-  <release>stable</release>
-  <api>stable</api>
+  <release>beta</release>
+  <api>beta</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
  <notes>Initial PHP5 port of Net_CheckIP.</notes>
@@ -40,7 +40,12 @@ http://pear.php.net/dtd/package-2.0.xsd">
     </file>
    </dir>
    <dir name="examples" baseinstalldir="Net_CheckIP2">
-    <file name="check-ip.php" role="doc"/>
+    <file name="check-ip.php" role="doc" />
+   </dir>
+   <dir name="tests" baseinstalldir="Net_CheckIP2">
+    <dir name="Net_CheckIP2" baseinstalldir="Net_CheckIP2/Net_CheckIP2">
+     <file name="check_ip.phpt" role="test" />
+    </dir>
    </dir>
   </dir> <!-- / -->
  </contents>
@@ -58,12 +63,12 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <changelog>
   <release>
    <version>
-    <release>1.0.0</release>
-    <api>1.0.0</api>
+    <release>1.0.0RC1</release>
+    <api>1.0.0RC1</api>
    </version>
    <stability>
-    <release>stable</release>
-    <api>stable</api>
+    <release>beta</release>
+    <api>beta</api>
    </stability>
    <date>2007-12-04</date>
    <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
