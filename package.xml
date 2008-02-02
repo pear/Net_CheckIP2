@@ -19,18 +19,18 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>mj@php.net</email>
   <active>yes</active>
  </lead>
- <date>2007-12-04</date>
- <time>18:00:00</time>
+ <date>2008-02-02</date>
+ <time>22:10:00</time>
  <version>
-  <release>1.0.0RC1</release>
-  <api>1.0.0RC1</api>
+  <release>1.0.0RC2</release>
+  <api>1.0.0RC2</api>
  </version>
  <stability>
   <release>beta</release>
   <api>beta</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
- <notes>Initial PHP5 port of Net_CheckIP.</notes>
+ <notes>Added a test.</notes>
  <contents>
   <dir name="/">
    <dir name="Net">
@@ -61,6 +61,19 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.0.0RC2</release>
+    <api>1.0.0RC2</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-02-02</date>
+   <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
+   <notes>Added a test.</notes>
+  </release>
   <release>
    <version>
     <release>1.0.0RC1</release>
