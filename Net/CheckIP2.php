@@ -40,8 +40,8 @@
  * @author   Till Klampaeckel <till@php.net>
  * @category Networking
  * @package  Net_CheckIP2
- * @version  0.0.1
- * @license http://www.opensource.org/licenses/mit-license.html MIT License
+ * @version  @package_version@
+ * @license  http://www.opensource.org/licenses/mit-license.html MIT License
  */
 class Net_CheckIP2
 {
@@ -66,6 +66,9 @@ class Net_CheckIP2
      */
     static function check_ip($ip = '')
     {
+        if (empty($ip)) {
+            return false;
+        }
         $oct = explode('.', $ip);
         if (count($oct) != 4) {
             return false;
