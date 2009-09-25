@@ -21,66 +21,48 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  *
+ * PHP Version 5
+ *
+ * @category Networking
+ * @package  Net_CheckIP2
+ * @author   Martin Jansen <mj@php.net>
+ * @author   Guido Haeger <gh-lists@ecora.de>
+ * @author   Till Klampaeckel <till@php.net>
+ * @license  http://www.opensource.org/licenses/mit-license.html MIT License
+ * @version  SVN: $Id$
+ * @link     http://pear.php.net/package/Net_CheckIP2
  */
 
 /**
  * Class to validate the syntax of IPv4 adresses
  *
  * Usage:
+ * <code>
  *   <?php
  *   require_once 'Net/CheckIP2.php';
  *
- *   if (Net_CheckIP2::check_ip("your_ip_goes_here")) {
+ *   if (Net_CheckIP2::isValid("your_ip_goes_here")) {
  *       // Syntax of the IP is ok
  *   }
  *   ?>
+ * </code>
  *
+ * @category Networking
+ * @package  Net_CheckIP2
  * @author   Martin Jansen <mj@php.net>
  * @author   Guido Haeger <gh-lists@ecora.de>
  * @author   Till Klampaeckel <till@php.net>
- * @category Networking
- * @package  Net_CheckIP2
- * @version  @package_version@
  * @license  http://www.opensource.org/licenses/mit-license.html MIT License
+ * @version  Release: @package_version@
+ * @link     http://pear.php.net/package/Net_CheckIP2
  */
 class Net_CheckIP2
 {
     /**
-     * Force usage of check_ip
+     * Force usage of {@link self::isValid()}.
      */
     private function __construct()
-    {}
-
-    /**
-     * Validate the syntax of the given IP adress
-     *
-     * This function splits the IP address in 4 pieces
-     * (separated by ".") and checks for each piece
-     * if it's an integer value between 0 and 255.
-     * If all 4 parameters pass this test, the function
-     * returns true.
-     *
-     * @param  string $ip IP adress
-     * @return bool   true if syntax is valid, otherwise false
-     */
-    public static function check_ip($ip = '')
     {
-        if (empty($ip)) {
-            return false;
-        }
-        $parts = explode('.', $ip);
-        if (count($parts) != 4) {
-            return false;
-        }
-        for ($i = 0; $i < 4; ++$i) {
-            if (!is_numeric($parts[$i])) {
-                return false;
-            }
-            if ($parts[$i] < 0 || $parts[$i] > 255) {
-                return false;
-            }
-        }
-        return true;
     }
 
     /**
@@ -129,7 +111,13 @@ class Net_CheckIP2
     }
 
     /**
-     * A better pattern.
+     * Validate the syntax of the given IP adress
+     *
+     * This function splits the IP address in 4 pieces
+     * (separated by ".") and checks for each piece
+     * if it's an integer value between 0 and 255.
+     * If all 4 parameters pass this test, the function
+     * returns true.
      *
      * @param string $ip The IP address.
      *
@@ -138,6 +126,21 @@ class Net_CheckIP2
      */
     public static function isValid($ip)
     {
-        return self::check_ip($ip);
+        if (empty($ip)) {
+            return false;
+        }
+        $parts = explode('.', $ip);
+        if (count($parts) != 4) {
+            return false;
+        }
+        for ($i = 0; $i < 4; ++$i) {
+            if (!is_numeric($parts[$i])) {
+                return false;
+            }
+            if ($parts[$i] < 0 || $parts[$i] > 255) {
+                return false;
+            }
+        }
+        return true;
     }
 }
