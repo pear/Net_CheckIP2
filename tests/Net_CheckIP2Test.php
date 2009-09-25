@@ -95,8 +95,11 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
     public static function classProvider()
     {
         return array(
+            array('10.0.0.0', Net_CheckIP2::CLASS_A),
             array('127.0.0.1', Net_CheckIP2::CLASS_A),
             array('149.76.12.4', Net_CheckIP2::CLASS_B),
+            array('172.16.0.0', Net_CheckIP2::CLASS_B),
+            array('192.168.0.0', Net_CheckIP2::CLASS_C),
             array('193.202.116.8', Net_CheckIP2::CLASS_C),
             array('223.255.255.0', Net_CheckIP2::CLASS_C),
             array('224.0.0.0', false), // Class D, E, F
