@@ -58,11 +58,57 @@
  */
 class Net_CheckIP2
 {
+    const CLASS_A = 'NCI2xA';
+    const CLASS_B = 'NCI2xB';
+    const CLASS_C = 'NCI2xC';
+
     /**
      * Force usage of {@link self::isValid()}.
      */
     private function __construct()
     {
+    }
+
+    /**
+     * Return the class of the IP.
+     *
+     * @param string $ip The IP address.
+     *
+     * @return mixed
+     * @throws InvalidArgumentException.
+     *
+     * @uses   self::isValid()
+     * @uses   self::CLASS_A
+     * @uses   self::CLASS_B
+     * @uses   self::CLASS_C
+     */
+    public static function getClass($ip)
+    {
+        if (!self::isValid($ip)) {
+            throw new InvalidArgumentException("This is an invalid IP address.");
+        }
+        $ip = explode('.', $ip);
+
+        $a = (int) $ip[0];
+        $b = (int) $ip[1];
+        $c = (int) $ip[2];
+        $d = (int) $ip[3];
+
+        // 1.0.0.0 through 127.0.0.0
+        if ($a >= 1 && $a <= 127) {
+            return self::CLASS_A;
+        }
+
+        // 128.0.0.0 through 191.255.0.0
+        if ($a >= 128 && $a <= 191) {
+            return self::CLASS_B;
+        }
+
+        // 192.0.0.0 through 223.255.255.0
+        if ($a >= 192 && $a <= 223) {
+            return self::CLASS_C;
+        }
+        return false;
     }
 
     /**
@@ -78,7 +124,7 @@ class Net_CheckIP2
      * @return boolean
      * @throws InvalidArgumentException If validation fails.
      *
-     8 @link http://www.faqs.org/rfcs/rfc1918.html
+     * @link http://www.faqs.org/rfcs/rfc1918.html
      */
     public static function isReserved($ip)
     {
@@ -86,7 +132,6 @@ class Net_CheckIP2
             throw new InvalidArgumentException("This is an invalid IP address.");
         }
         $ip = explode('.', $ip);
-        array_walk($ip, 'intval');
 
         $a = (int) $ip[0];
         $b = (int) $ip[1];
