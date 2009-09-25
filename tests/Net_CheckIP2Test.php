@@ -61,6 +61,6 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
      */
     public function testIp($ip, $assert)
     {
-        $this->assertSame($assert, Net_CheckIP2::check_ip($ip));
+        $this->assertSame($assert, Net_CheckIP2::isValid($ip));
     }
 }
