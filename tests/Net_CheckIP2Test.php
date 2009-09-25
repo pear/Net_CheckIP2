@@ -53,6 +53,9 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
             array('172.31.255.255', true),
             array('192.168.0.256', false),
             array('a.123.123.123', false),
+            array('1,234.123.123.123', false),
+            array('0.1,23.0.0.1', false),
+            array('10.9.8.7.6', false),
         );
     }
 
