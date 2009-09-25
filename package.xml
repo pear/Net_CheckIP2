@@ -7,12 +7,13 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <channel>pear.php.net</channel>
  <summary>A package to determine if an IP (v4) is valid.</summary>
  <description>
-Net_CheckIP2 validates IPv4 addresses. Additionally, you may check if an IP is from a reserved/private IP space (according to RFC 1918).
+Net_CheckIP2 allows you to validate an IPv4 address.
 
-Net_CheckIP2 is a PHP5 port of the Net_CheckIP package. It's almost a drop-in replacement:
+Additionally, using isReserved(), you may check if an IP is from a reserved/private
+IP space (according to RFC 1918). Using getClass(), you may retrieve the IP's class
+network (A, B, C currently supported).
 
-Before: Net_CheckIP::check_ip($ip);
-After: Net_CheckIP2::isValid($ip);
+Net_CheckIP2 is a PHP5 port of the Net_CheckIP package and is almost a drop-in replacement.
 </description>
  <lead>
   <name>Till Klampaeckel</name>
@@ -38,6 +39,7 @@ After: Net_CheckIP2::isValid($ip);
  </stability>
  <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
  <notes>
+* introduced getClass()
 * introduced isValid() 
 * introduced isReserved()
 * added AllTests and new test suite
