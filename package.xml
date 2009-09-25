@@ -22,15 +22,18 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <date>2008-02-02</date>
  <time>22:10:00</time>
  <version>
-  <release>1.0.0RC2</release>
-  <api>1.0.0RC2</api>
+  <release>1.0.0RC3</release>
+  <api>1.0.0RC3</api>
  </version>
  <stability>
   <release>beta</release>
   <api>beta</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
- <notes>Added a test.</notes>
+ <notes>
+* introduced isValid()
+* added AllTests and new test suite
+ </notes>
  <contents>
   <dir name="/">
    <dir name="Net">
@@ -43,9 +46,9 @@ http://pear.php.net/dtd/package-2.0.xsd">
     <file name="check-ip.php" role="doc" />
    </dir>
    <dir name="tests" baseinstalldir="Net_CheckIP2">
-    <dir name="Net_CheckIP2" baseinstalldir="Net_CheckIP2/Net_CheckIP2">
-     <file name="check_ip.phpt" role="test" />
-    </dir>
+    <file name="AllTests.php" role="test" />
+    <file name="Net_CheckIP2Test.php" role="test" />
+    <file name="check_ip.phpt" role="test" />
    </dir>
   </dir> <!-- / -->
  </contents>
