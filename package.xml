@@ -6,7 +6,14 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <name>Net_CheckIP2</name>
  <channel>pear.php.net</channel>
  <summary>A package to determine if an IP (v4) is valid.</summary>
- <description>Net_CheckIP2 is a PHP5 port of the Net_CheckIP package. It's a drop-in replacement.</description>
+ <description>
+Net_CheckIP2 validates IPv4 addresses. Additionally, you may check if an IP is from a reserved/private IP space (according to RFC 1918).
+
+Net_CheckIP2 is a PHP5 port of the Net_CheckIP package. It's almost a drop-in replacement:
+
+Before: Net_CheckIP::check_ip($ip);
+After: Net_CheckIP2::isValid($ip);
+</description>
  <lead>
   <name>Till Klampaeckel</name>
   <user>till</user>
@@ -31,7 +38,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </stability>
  <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
  <notes>
-* introduced isValid()
+* introduced isValid() 
+* introduced isReserved()
 * added AllTests and new test suite
  </notes>
  <contents>
