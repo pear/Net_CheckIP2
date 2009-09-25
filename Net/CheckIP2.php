@@ -68,16 +68,15 @@ class Net_CheckIP2
         if (empty($ip)) {
             return false;
         }
-        $oct = explode('.', $ip);
-        if (count($oct) != 4) {
+        $parts = explode('.', $ip);
+        if (count($parts) != 4) {
             return false;
         }
-        for ($i = 0; $i < 4; $i++) {
-            if (!preg_match("/^[0-9]+$/", $oct[$i])) {
+        for ($i = 0; $i < 4; ++$i) {
+            if (!is_numeric($parts[$i])) {
                 return false;
             }
-
-            if ($oct[$i] < 0 || $oct[$i] > 255) {
+            if ($parts[$i] < 0 || $parts[$i] > 255) {
                 return false;
             }
         }
@@ -96,6 +95,8 @@ class Net_CheckIP2
      *
      * @return boolean
      * @throws InvalidArgumentException If validation fails.
+     *
+     8 @link http://www.faqs.org/rfcs/rfc1918.html
      */
     public static function isReserved($ip)
     {
