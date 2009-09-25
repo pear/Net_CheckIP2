@@ -13,7 +13,7 @@
  * @package    Net_CheckIP2
  * @subpackage UnitTesting
  * @author     Chuck Burgess <ashnazg@php.net>
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/File_IMC
  * @since      0.4.0
@@ -76,7 +76,7 @@ require_once 'Net_CheckIP2Test.php';
  * @package    File_IMC
  * @subpackage UnitTesting
  * @author     Chuck Burgess <ashnazg@php.net>
- * @license    http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/File_IMC
  * @since      0.8.0

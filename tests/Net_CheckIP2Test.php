@@ -4,11 +4,10 @@
  *
  * PHP versions 5
  *
- * @category  Net
+ * @category  Networking
  * @package   Net_CheckIP2
  * @author    Till Klampaeckel <till@php.net>
- * @copyright Copyright (c) 2007 Contaxis Limited
- * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @version   SVN: $Id$
  * @link      http://pear.php.net/package/Net_CheckIP2
  */
@@ -30,12 +29,12 @@ set_include_path(
 require_once "Net/CheckIP2.php";
 
 /**
- * Tests for File_IMC.
+ * Tests for Net_CheckIP2.
  *
- * @category  Net
+ * @category  Networking
  * @package   Net_CheckIP2
  * @author    Till Klampaeckel <till@php.net>
- * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/Net_CheckIP2
  */
