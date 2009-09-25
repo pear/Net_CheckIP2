@@ -63,4 +63,30 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
     {
         $this->assertSame($assert, Net_CheckIP2::isValid($ip));
     }
+
+    public static function reservedIpProvider()
+    {
+        return array(
+            array('10.0.0.0'),
+            array('192.168.0.255'),
+            array('172.16.0.33'),
+            array('172.31.255.255'),
+        );
+    }
+
+    /**
+     * @dataProvider reservedIpProvider
+     */
+    public function testReserved($ip)
+    {
+        $this->assertTrue(Net_CheckIP2::isReserved($ip));
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testReservedException()
+    {
+        Net_CheckIP2::isReserved('x.x.x.x');
+    }
 }

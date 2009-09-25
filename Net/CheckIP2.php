@@ -85,6 +85,49 @@ class Net_CheckIP2
     }
 
     /**
+     * Checks if the IP address is reserved (according to RFC1918).
+     *
+     * Reserved IP addresses are:
+     *  o 10.x.x.x
+     *  o 192.168.x.x
+     *  o 172.16.0.0 to 172.31.255.255
+     *
+     * @param string $ip The IP address.
+     *
+     * @return boolean
+     * @throws InvalidArgumentException If validation fails.
+     */
+    public static function isReserved($ip)
+    {
+        if (!self::isValid($ip)) {
+            throw new InvalidArgumentException("This is an invalid IP address.");
+        }
+        $ip = explode('.', $ip);
+        array_walk($ip, 'intval');
+
+        $a = (int) $ip[0];
+        $b = (int) $ip[1];
+        $c = (int) $ip[2];
+        $d = (int) $ip[3];
+
+        //var_dump($ip, $a, $b, $c, $d);exit;
+
+        if ($a === 10) {
+            return true;
+        }
+        if ($a === 192 && $b === 168) {
+            return true;
+        }
+        if ($a !== 172) {
+            return false;
+        }
+        if ($b >= 16 && $b <= 31) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * A better pattern.
      *
      * @param string $ip The IP address.
