@@ -91,4 +91,24 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
     {
         Net_CheckIP2::isReserved('x.x.x.x');
     }
+
+    public static function classProvider()
+    {
+        return array(
+            array('127.0.0.1', Net_CheckIP2::CLASS_A),
+            array('149.76.12.4', Net_CheckIP2::CLASS_B),
+            array('193.202.116.8', Net_CheckIP2::CLASS_C),
+            array('223.255.255.0', Net_CheckIP2::CLASS_C),
+            array('224.0.0.0', false), // Class D, E, F
+            array('254.0.0.0', false), // Class D, E, F
+        );
+    }
+
+    /**
+     * @dataProvider classProvider
+     */
+    public function testIpClass($ip, $classNetwork)
+    {
+        $this->assertSame($classNetwork, Net_CheckIP2::getClass($ip));
+    }
 }
