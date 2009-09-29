@@ -164,10 +164,11 @@ class Net_CheckIP2
      * If all 4 parameters pass this test, the function
      * returns true.
      *
+     * This replaces Net_CheckIP2::check_ip()!
+     *
      * @param string $ip The IP address.
      *
      * @return boolean
-     * @uses   self::check_ip()
      */
     public static function isValid($ip)
     {
