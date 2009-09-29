@@ -27,8 +27,8 @@ Net_CheckIP2 is a PHP5 port of the Net_CheckIP package and is almost a drop-in r
   <email>mj@php.net</email>
   <active>yes</active>
  </lead>
- <date>2008-02-02</date>
- <time>22:10:00</time>
+ <date>2009-09-29</date>
+ <time>21:00:00</time>
  <version>
   <release>1.0.0RC3</release>
   <api>1.0.0RC3</api>
@@ -39,6 +39,18 @@ Net_CheckIP2 is a PHP5 port of the Net_CheckIP package and is almost a drop-in r
  </stability>
  <license uri="http://www.opensource.org/licenses/mit-license.html">MIT License</license>
  <notes>
+This release introduces a last-minute BC break:
+
+To update your code, please replace the following:
+
+   Net_CheckIP2::check_ip($ip);
+
+... with:
+
+   Net_CheckIP2::isValid($ip);
+
+Changelog:
+
 * introduced getClass()
 * introduced isValid() 
 * introduced isReserved()
