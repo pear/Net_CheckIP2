@@ -1,6 +1,6 @@
 <?php
 /**
- * Master Unit Test Suite file for File_IMC
+ * Master Unit Test Suite file for Net_CheckIP2
  *
  * This top-level test suite file organizes
  * all class test suite files,
@@ -15,7 +15,7 @@
  * @author     Chuck Burgess <ashnazg@php.net>
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @version    CVS: $Id$
- * @link       http://pear.php.net/package/File_IMC
+ * @link       http://pear.php.net/package/Net_CheckIP2
  * @since      0.4.0
  */
 
@@ -26,7 +26,7 @@
 if (version_compare(PHP_VERSION, "5.1.4") < 0) {
     // Cannnot run test suites
     echo 'Cannot run test suite via PhpUnit... requires at least PHP v5.1.4.' . PHP_EOL;
-    echo 'Use "pear run-tests -p File_IMC" to run the PHPT tests directly.' . PHP_EOL
+    echo 'Use "pear run-tests -p Net_CheckIP2" to run the PHPT tests directly.' . PHP_EOL
 ;
     exit(1);
 }
@@ -38,7 +38,7 @@ if (version_compare(PHP_VERSION, "5.1.4") < 0) {
  *           to make this usage meet the PEAR CS... we cannot rename it here.
  */
 if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'File_IMC_AllTests::main');
+    define('PHPUnit_MAIN_METHOD', 'Net_CheckIP2_AllTests::main');
 }
 
 
@@ -83,7 +83,6 @@ require_once 'Net_CheckIP2Test.php';
  */
 class Net_CheckIP2_AllTests
 {
-
     /**
      * Launches the TextUI test runner
      *
@@ -95,14 +94,13 @@ class Net_CheckIP2_AllTests
         PHPUnit_TextUI_TestRunner::run(self::suite());
     }
 
-
     /**
      * Adds all class test suites into the master suite
      *
      * @return PHPUnit_Framework_TestSuite a master test suite
      *                                     containing all class test suites
      * @uses PHPUnit_Framework_TestSuite
-     */ 
+     */
     public static function suite()
     {
         $suite = new PHPUnit_Framework_TestSuite(
