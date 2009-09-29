@@ -51,9 +51,9 @@ To update your code, please replace the following:
 
 Changelog:
 
-* introduced getClass()
-* introduced isValid() 
-* introduced isReserved()
+* introduced getClass() - determine the CLASS network (A, B, C supported)
+* introduced isValid() - replaces check_ip()
+* introduced isReserved() - determine if the IP is from within a reserved space
 * added AllTests and new test suite
  </notes>
  <contents>
