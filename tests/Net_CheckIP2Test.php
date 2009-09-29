@@ -85,11 +85,11 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * x.x.x.x should return false, since it's an invalid IP.
      */
     public function testReservedException()
     {
-        Net_CheckIP2::isReserved('x.x.x.x');
+        $this->assertFalse(Net_CheckIP2::isReserved('x.x.x.x'));
     }
 
     public static function classProvider()

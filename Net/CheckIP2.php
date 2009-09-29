@@ -74,8 +74,7 @@ class Net_CheckIP2
      *
      * @param string $ip The IP address.
      *
-     * @return mixed
-     * @throws InvalidArgumentException.
+     * @return mixed A constant that represents the class, or false.
      *
      * @uses   self::isValid()
      * @uses   self::CLASS_A
@@ -85,7 +84,7 @@ class Net_CheckIP2
     public static function getClass($ip)
     {
         if (!self::isValid($ip)) {
-            throw new InvalidArgumentException("This is an invalid IP address.");
+            return false;
         }
         $ip = explode('.', $ip);
 
@@ -122,14 +121,13 @@ class Net_CheckIP2
      * @param string $ip The IP address.
      *
      * @return boolean
-     * @throws InvalidArgumentException If validation fails.
      *
      * @link http://www.faqs.org/rfcs/rfc1918.html
      */
     public static function isReserved($ip)
     {
         if (!self::isValid($ip)) {
-            throw new InvalidArgumentException("This is an invalid IP address.");
+            return false;
         }
         $ip = explode('.', $ip);
 
