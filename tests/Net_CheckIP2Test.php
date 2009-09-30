@@ -4,12 +4,12 @@
  *
  * PHP versions 5
  *
- * @category  Networking
- * @package   Net_CheckIP2
- * @author    Till Klampaeckel <till@php.net>
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @version   SVN: $Id$
- * @link      http://pear.php.net/package/Net_CheckIP2
+ * @category Networking
+ * @package  Net_CheckIP2
+ * @author   Till Klampaeckel <till@php.net>
+ * @license  http://www.opensource.org/licenses/mit-license.html MIT License
+ * @version  SVN: $Id$
+ * @link     http://pear.php.net/package/Net_CheckIP2
  */
 
 /**
@@ -31,12 +31,12 @@ require_once "Net/CheckIP2.php";
 /**
  * Tests for Net_CheckIP2.
  *
- * @category  Networking
- * @package   Net_CheckIP2
- * @author    Till Klampaeckel <till@php.net>
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @version   Release: @package_version@
- * @link      http://pear.php.net/package/Net_CheckIP2
+ * @category Networking
+ * @package  Net_CheckIP2
+ * @author   Till Klampaeckel <till@php.net>
+ * @license  http://www.opensource.org/licenses/mit-license.html MIT License
+ * @version  Release: @package_version@
+ * @link     http://pear.php.net/package/Net_CheckIP2
  */
 class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
 {
@@ -45,7 +45,7 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
         return array(
             array('192.168.10.2', true),
             array('10.0.0.1', true),
-            array('0.0.0.0', true),
+            array('0.0.0.0', true), // RFC 1700: http://tools.ietf.org/html/rfc1700
             array('', false),
             array('255.255.255.255', true),
             array('172.16.0.0', true),
@@ -113,5 +113,28 @@ class Net_CheckIP2Test extends PHPUnit_Framework_TestCase
     public function testIpClass($ip, $classNetwork)
     {
         $this->assertSame($classNetwork, Net_CheckIP2::getClass($ip));
+    }
+
+    public static function zeroconfProvider()
+    {
+        return array(
+            array('169.254.0.0', true),
+            array('169.254.255.255', true),
+            array('169.255.255.255', false),
+            array('192.168.1.1', false),
+        );
+    }
+
+    /**
+     * @param string  $ip     The IP address.
+     * @param boolean $assert The assertion.
+     *
+     * @return void
+     *
+     * @dataProvider zeroconfProvider
+     */
+    public function testZeroconf($ip, $assert)
+    {
+        $this->assertEquals($assert, Net_CheckIP2::isZeroconf($ip));
     }
 }

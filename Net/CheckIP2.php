@@ -187,4 +187,29 @@ class Net_CheckIP2
         }
         return true;
     }
+
+    /**
+     * Zeroconf - automatically created usable IPs without manual intervention or
+     * management/configuration servers. This includes IPs from 169.254.0.0 to
+     * 169.254.255.255.
+     *
+     * @param string $ip The IP address.
+     *
+     * @return boolean
+     * @link   http://tools.ietf.org/html/rfc3330
+     */
+    public static function isZeroconf($ip)
+    {
+        if (!self::isValid($ip)) {
+            return false;
+        }
+        $parts = explode('.', $ip);
+        if ($parts[0] != 169) {
+            return false;
+        }
+        if ($parts[1] != 254) {
+            return false;
+        }
+        return true;
+    }
 }
