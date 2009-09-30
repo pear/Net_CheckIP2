@@ -48,6 +48,7 @@ Changelog:
 * introduced getClass() - determine the CLASS network (A, B, C supported)
 * introduced isValid() - replaces check_ip()
 * introduced isReserved() - determine if the IP is from within a reserved space
+* introduced isZeroconf() - determine if the IP is from the zeroconf pool
 * added AllTests and new test suite</notes>
  <contents>
   <dir name="/">
