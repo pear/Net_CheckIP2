@@ -1,0 +1,5 @@
+<phpunit colors="true">
+    <testsuite name="Net_CheckIP2 Test Suite">
+        <file>./AllTests.php</file>
+    </testsuite>
+</phpunit>
