@@ -45,9 +45,16 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 /*
  * Files needed by PhpUnit
  */
-require_once 'PHPUnit/Framework.php';
-require_once 'PHPUnit/TextUI/TestRunner.php';
-require_once 'PHPUnit/Extensions/PhptTestSuite.php';
+if ($fp = @fopen('PHPUnit/Autoload.php', 'r', true)) {
+    require_once 'PHPUnit/Autoload.php';
+} elseif ($fp = @fopen('PHPUnit/Framework.php', 'r', true)) {
+    require_once 'PHPUnit/Framework.php';
+    require_once 'PHPUnit/TextUI/TestRunner.php';
+    require_once 'PHPUnit/Extensions/PhptTestSuite.php';
+} else {
+    die('skip could not find PHPUnit');
+}
+fclose($fp);
 
 /*
  * You must add each additional class-level test suite file here
@@ -62,7 +69,7 @@ define('Net_CheckIP2_DIR_PHPT', dirname(__FILE__));
 /**
  * File_IMC_BuildTest
  */
-require_once 'Net_CheckIP2Test.php';
+require_once dirname(__FILE__) . '/Net_CheckIP2Test.php';
 
 /**
  * Master Unit Test Suite class for File_IMC
