@@ -20,7 +20,7 @@ require_once 'PHPUnit/Framework/TestCase.php';
 
 set_include_path(
     realpath(dirname(__FILE__) . '/../')
-    . ':' . get_include_path()
+    . PATH_SEPARATOR . get_include_path()
 );
 
 /**
