@@ -20,17 +20,17 @@
     "include-path": [
         "./"
     ],
-    "license": "MIT License",
+    "license": "MIT",
     "name": "pear/net_checkip2",
     "support": {
         "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Net_CheckIP2",
         "source": "https://github.com/pear/Net_CheckIP2"
     },
     "type": "library",
-    "require": {
-        "pear/pear_exception": "*"
-    },
     "require-dev": {
         "phpunit/phpunit": "*"
+    },
+    "replace": {
+        "pear/net_checkip": "*"
     }
 }
